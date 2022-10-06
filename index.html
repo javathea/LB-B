@@ -5,8 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDo Liste</title>
+    <script type="text/javascript" src="index.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>ToDo Liste für Heute</h1>
+    <form id="taskForm">
+        <h1>ToDo Liste für Heute</h1>
+        <label for="taskInput">Bitte Task eingeben</label>
+        <input type="text" name="identifier" id="taskInput"/>
+        <button type="submit">Task eingeben</button>
+    </form>
+    <h2>Informationene zu den Tasks</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Erledigt?</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
 </body>
 </html>
