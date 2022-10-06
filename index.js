@@ -4,16 +4,26 @@ function createCell(text) {
     return cell;
 }
 
+
 function renderTasks(tasks) {
     const tableBody = document.querySelector('tbody')
     tasks.forEach((tasks) => {
         const tableRow = document.createElement("tr")
+
+        const button = document.createElement("button")
+        button.innerText = "Delete"
+        button.addEventListener("click", () => {
+            deleteTask(id);
+            id = tasks.id;
+        })
+
         tableRow.append(
             createCell(tasks.id), 
             createCell(tasks.completed), 
             createCell(tasks.title)
             );
         tableBody.appendChild(tableRow);
+        tableRow.appendChild(button);
     });
 };
 
@@ -38,7 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
     taskForm.addEventListener("submit", (event) => {
         event.preventDefault();
     })
+    
 });
 
+function deleteTask() {
+    fetch(`http://localhost:3000/task/${id}`, {
+        method: `DELETE`,
+        })
+}
 
 

@@ -12,7 +12,7 @@ function createTask() {
             })           
             .then((response) => response.json())
             .then((data) => {
-                console.log("yey!");
+                console.log("yey!", data);
             })
     }
 
