@@ -5,20 +5,25 @@ function createCell(text) {
 }
 
 function renderTasks(tasks) {
-    const tableBody = document.querySelector("tbody")
-    tasks.forEach((task) => {
+    const tableBody = document.querySelector('tbody')
+    tasks.forEach((tasks) => {
         const tableRow = document.createElement("tr")
         tableRow.append(
-            createCell(task.id), 
-            createCell(task.completed), 
-            createCell(task.title)
-            )
+            createCell(tasks.id), 
+            createCell(tasks.completed), 
+            createCell(tasks.title)
+            );
         tableBody.appendChild(tableRow);
     });
 };
 
 function indexTask() {
-    fetch("http://localhost:3000/tasks")
+    fetch("http://localhost:3000/tasks", {
+        credentials: `include`,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
     .then((response) => response.json())
     .then((data) => {
         taskData = data;
@@ -26,21 +31,14 @@ function indexTask() {
     })
 };
 
-function createTask(task) {
-    fetch("http://localhost:3000/tasks", {
-        method: `POST`,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(task)
-        }) .then()
-}
 
 document.addEventListener("DOMContentLoaded", () => {
     indexTask();
-    createTask();
     const taskForm = document.getElementById("taskForm");
     taskForm.addEventListener("submit", (event) => {
         event.preventDefault();
     })
 });
+
+
+

@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <ul>
+            <li><a href="newTask.html">Task hinzufügen</a></li>
+        </ul>
     <form id="taskForm">
         <h1>ToDo Liste für Heute</h1>
-        <label for="taskInput">Bitte Task eingeben</label>
-        <input type="text" name="identifier" id="taskInput"/>
-        <button type="submit">Task eingeben</button>
     </form>
     <h2>Informationene zu den Tasks</h2>
     <table>
@@ -22,9 +23,14 @@
                 <th>Id</th>
                 <th>Erledigt?</th>
                 <th>Name</th>
+                <th>Delete</th>
+
             </tr>
         </thead>
-        <tbody>
+        <tbody id="body">
+            <tr>
+
+            </tr>
         </tbody>
     </table>
 </body>
