@@ -36,7 +36,7 @@ function renderTasks(tasks) {
 };
 
 function indexTask() {
-    fetch("http://127.0.0.1:3000/tasks", {
+    fetch("http://127.0.0.1:3000/auth/cookie/tasks", {
         credentials: `include`,
         headers: {
             'Content-Type': 'application/json'
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function deleteTask() {
-    fetch(`http://127.0.0.1:3000/task/${id}`, {
+    fetch(`http://127.0.0.1:3000/auth/cookie/task/${id}`, {
         method: `DELETE`,
         credentials: "include",
         headers: {
@@ -76,7 +76,7 @@ function deleteTask() {
 function updateTask(id) {
     let update = prompt("Bitte Task updaten");
     if (update != null) {
-    fetch("http://127.0.0.1:3000/tasks", {
+    fetch("http://127.0.0.1:3000/auth/cookie/tasks", {
         method: `PUT`,
         credentials: "include",
         headers: {
