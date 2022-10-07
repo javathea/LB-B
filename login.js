@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     checkLoggedIn();
 
-    document.getElementById("login").addEventListener("submit", function(event) {
-        event.preventDefault()
-
+    document.getElementById("login").addEventListener("submit", () => {
         const email = document.getElementById("email_input").value
         const password = document.getElementById("password_input").value
         const login = {email: email, password: password}
@@ -28,6 +26,7 @@ function checkLoggedIn() {
     }).then(function(response) {
         console.log(response)
         if (response.status === 401) {
+            alert("Sie sind nicht eingeloggt!")
             elementWhenLoggedIn.classList.add("hidden")
             elementWhenNotLoggedIn.classList.remove("hidden")
         } else {
